@@ -6,25 +6,107 @@
     <title>MASTERMIND</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="main.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+      </style>
 
 </head>
 <body>
-    <div class="content">
-        <div class = "gameboard">
-            <div class = "board"></div>
-            <div class = "pegs"></div>
-    </div>
-    <div class = "other"></div>
-            <div class = "code">
-             <div class = "secretCode"></div>
-             <div class = "secretCode"></div>
-             <div class = "secretCode"></div>
-             <div class = "secretCode"></div>
+    <header>
+       <h1>MASTERMIND</h1>
+    </header>
+    <div class ="game-context"></div>
+    <main>
+        <div class ="gameboard">
+            <div class ="guess-container">
+                <div class ="guess-row" id="guessrowanswer">
+                    <div class = "guess-peg"></div> 
+                    <div class = "guess-peg"></div> 
+                    <div class = "guess-peg"></div> 
+                    <div class = "guess-peg"></div> 
+                </div>
+                    <div class ="guess-row" id="guessrow1">
+                        <div class = "guess-peg"></div> 
+                        <div class = "guess-peg"></div> 
+                        <div class = "guess-peg"></div> 
+                        <div class = "guess-peg"></div> 
+                    </div>
+                <div class ="guess-row" id="guessrow2">
+                    <div class = "guess-peg"></div> 
+                    <div class = "guess-peg"></div> 
+                    <div class = "guess-peg"></div> 
+                    <div class = "guess-peg"></div> 
+                </div>
+                <div class ="guess-row" id="guessrow3">
+                    <div class = "guess-peg"></div> 
+                    <div class = "guess-peg"></div> 
+                    <div class = "guess-peg"></div> 
+                    <div class = "guess-peg"></div> 
+                </div>
+                <div class ="guess-row" id="guessrow4">
+                    <div class = "guess-peg"></div> 
+                    <div class = "guess-peg"></div> 
+                    <div class = "guess-peg"></div> 
+                    <div class = "guess-peg"></div> 
+                </div>
+                <div class ="guess-row" id="guessrow5">
+                    <div class = "guess-peg"></div> 
+                    <div class = "guess-peg"></div> 
+                    <div class = "guess-peg"></div> 
+                    <div class = "guess-peg"></div> 
+                </div>
             </div>
-            <div>
-                
+        <div class = "grade-container">
+            <div class = "grade-row" id ="graderownada"> 
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
+            <div class = "grade-row" id ="graderow1"> 
+                <div class = "grade-peg"></div>
+                <div class = "grade-peg"></div>
+                <div class = "grade-peg"></div>
+                <div class = "grade-peg"></div>
+            </div>
+            <div class = "grade-row" id ="graderow2"> 
+                <div class = "grade-peg"></div>
+                <div class = "grade-peg"></div>
+                <div class = "grade-peg"></div>
+                <div class = "grade-peg"></div>
+            </div>
+            <div class = "grade-row" id ="graderow3"> 
+                <div class = "grade-peg"></div>
+                <div class = "grade-peg"></div>
+                <div class = "grade-peg"></div>
+                <div class = "grade-peg"></div>
+            </div>
+            <div class = "grade-row" id ="graderow4"> 
+                <div class = "grade-peg"></div>
+                <div class = "grade-peg"></div>
+                <div class = "grade-peg"></div>
+                <div class = "grade-peg"></div>
+            </div>
+            <div class = "grade-row" id ="graderow5"> 
+                <div class = "grade-peg"></div>
+                <div class = "grade-peg"></div>
+                <div class = "grade-peg"></div>
+                <div class = "grade-peg"></div>
+            </div>
+        </div>
+        <div class = "button-container">
+            <div class = "submit-btn">
+            <h3>Try It!</h3>
+            </div>
+        </div>
+    <div class=" selection-container">
+        <button class = "selection-input" id = "pink"> </button>
+        <button class = "selection-input" id = "blue"> </button>
+        <button class = "selection-input" id = "red"> </button>
+        <button class = "selection-input" id = "green"> </button>
+        <button class = "selection-input" id = "yellow"> </button> 
     </div>
-    
+    </main>
 </body>
 </html>
+
