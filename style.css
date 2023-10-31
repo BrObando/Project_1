@@ -68,7 +68,10 @@ body{
     height: 50px;
     width:30%;
     border: 2 px solid black;
-    border-radius: 50px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    margin-left: 5%;
+
 }
 .selection-container{
     grid-area: 5 / 2 / 6 / 3; 
@@ -110,6 +113,20 @@ body{
 }
 #yellow {
     background-color: rgb(237, 233, 11);
+    width: 10%;
+    height: 40%;
+    border-radius: 50px;
+    border-color: white;
+}
+#grey {
+    background-color: rgb(117, 112, 112);
+    width: 10%;
+    height: 40%;
+    border-radius: 50px;
+    border-color: white;
+}
+#white {
+    background-color: white;
     width: 10%;
     height: 40%;
     border-radius: 50px;
