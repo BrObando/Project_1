@@ -2,66 +2,120 @@ console.log('js:loaded')
 
 /*----- constants -----*/
 const colors = ["pink", "blue", "red", "green", "yellow"]
-const gradeColors = ["black", "white",] // TO DO PUT WHITE IN CSS
-const secretCode = generateSecretCode();
+const gradeColors = ["black", "white"] 
+//const secretCode = generateSecretCode();
 
 
 
 
   /*----- state variables -----*/
 let playerGuess = [];
-
-let guessContainer = [];
+let gradeAnswer = [];
+let selectContainer = [];
 let gradeContainer =[];
 let attempts = 5; 
-
+let secretCode =[];
+let rowNumber = 1;
+let circleNumber = 0; 
   /*----- cached elements  -----*/
 
   /*----- buttons -----*/ //const titleEl = document.querySelector('title');
-//color
-const pinkButtonEl = document.querySelector("pink");
-const blueButtonEl = document.querySelector("blue");
-const redButtonEl = document.querySelector("red");
-const greenButtonEl = document.querySelector("green");
-const yellowButtonEl = document.querySelector("yellow");
 
-    //extra buttons 
-    const submitButtonEl = document.querySelector("submit");
 
-  /*----- event listeners -----*/ //An event listener is a function - more specifically it's a callback function - that is called when an event fires.
-  //element.addEventListener('event-name', handleClick);- notes handleXXXX is best practice
+const selectionInput = document.querySelectorAll('.selection-input');
+const solution = document.querySelectorAll('#guessrowanswer');
+//console.log(guessContainer[0].children[0].children[0]);
+//console.log(selectionInput);
+
+generateSecretCode();
+    console.log(secretCode);
+
+
+
+
+selectionInput.forEach(function(colorOption){
+    colorOption.addEventListener('click', handleClick);
+    //console.log(colorOption);
+});
+
+
+const guessContainer = document.querySelectorAll('.guess-container');
+//console.log(guessContainer[0].children[0].children[0]);
+console.log(guessContainer[0].children[1].children[0]);
+//extra buttons 
+    const submitButton = document.querySelectorAll("#submit");
+
+  /*----- event listeners -----*/ 
     
-    // colors
-
-    pinkButtonEl.addEventListener('click', handleClick);
-    blueButtonEl.addEventListener('click', handleClick);
-    redButtonEl.addEventListener('click', handleClick);
-    greenButtonEl.addEventListener('click', handleClick);
-    yellowButtonEl.addEventListener('click', handleClick);
-    
-    // extra listeners
-
-    submitButtonEl.addEventListener('click', handleClick);
+    //submitButton.addEventListener('click' , nextRow);
 
   /*----- functions -----*/
-  function init(){
-    secretCode = [];
+  
+
+  function handleClick(e) {
+    //playerGuess.push(e.target.getAttribute("id"));
+   // console.log(playerGuess);
+
+    if (playerGuess.length<4) {
+        playerGuess.push(e.target.getAttribute("id"));
+        //reset// 
+        guessContainer[0].children[rowNumber].children[circleNumber].style.backgroundColor=e.target.id
+       
+        circleNumber++
+
+       if (playerGuess.length === 4){
+        checkMatch()
+        playerGuess = [];
+        circleNumber = 0;
+        
+
+    } 
+   
   }
 
-  //function handleClick(color){
-    //console.log(`Button ${color} was clicked.`); 
-    //if (color === 'pink') {
-       // } else (color === 'blue') {
-       // } else (color === 'red'){
-       // } else (color === 'green'){
-       // } else (color === 'yellow'){
+  
+}
 
-      //  }
-    //} 
+//edge case - make sure it doesn't come to next row 
+//f the player has filled all 6 rows and does not have a match, display the solution row and show a lose message
+//If the player guesses the correct secret code, display the solution row and show a win message
 
-    //generate code 
+function showSolution(){
+    if (rowNumber === attempts) {
+        displaySolutionRow(); 
+        alert("Try Again");
+        resetGame();
+    } else if (JSON.stringify(playerGuess) === JSON.stringify(secretCode) ) {
+        displaySolutionRow();
+        alert ("You Won!");
+        resetGame();
+    }
+}
+
+
+function displaySolutionRow() {
+    
+for (let i= 0; i < 4; i++) {
+    solution.children[0].style.backgroundColor = secretCode
+}
+   
+}
+
+
+
+function checkMatch(){
+    if (JSON.stringify(playerGuess) === JSON.stringify(secretCode) ){
+        console.log("match");
+    } else if (JSON.stringify(playerGuess) !== JSON.stringify(secretCode)) {
+       // console.log("false");
+       rowNumber++
+
+    }
+}
+
+    //generate code function
     function generateSecretCode() {
-        const secretCode = [];
+        //const secretCode = [];
         for (let i = 0; i < 4; i++) {
             const randomIndex = Math.floor(Math.random() * colors.length);
             secretCode.push(colors[randomIndex]);
@@ -69,11 +123,3 @@ const yellowButtonEl = document.querySelector("yellow");
         return secretCode;
     }
     
-    
-    console.log(generateSecretCode);
-
-    // function for when you select color options and put them in the guess container row 
-
- 
-   
-  
