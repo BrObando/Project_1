@@ -1,14 +1,13 @@
 console.log('js:loaded')
 
-/*----- constants -----*/
+ /**Constants*/
+
 const colors = ["pink", "blue", "red", "green", "yellow"]
 const gradeColors = ["black", "white"] 
-//const secretCode = generateSecretCode();
 
+/**Variables */
 
-
-
-  /*----- state variables -----*/
+let colorsInSecretCode = new Array(4).fill(null);
 let playerGuess = [];
 let gradeAnswer = [];
 let selectContainer = [];
@@ -17,22 +16,22 @@ let attempts = 5;
 let secretCode =[];
 let rowNumber = 1;
 let circleNumber = 0; 
-  /*----- cached elements  -----*/
 
-  /*----- buttons -----*/ //const titleEl = document.querySelector('title');
+
 
 const winner = document.querySelector('.winner-message');
-console.log(winner);
+//console.log(winner);
 
 
 const selectionInput = document.querySelectorAll('.selection-input');
 const solution = document.querySelectorAll('#guessrowanswer');
-console.log(solution);
+//console.log(solution);
+
 //console.log(guessContainer[0].children[0].children[0]);
 //console.log(selectionInput);
 
 generateSecretCode();
-    console.log(secretCode);
+//console.log(secretCode);
 
 
 
@@ -45,33 +44,31 @@ selectionInput.forEach(function(colorOption){
 
 const guessContainer = document.querySelectorAll('.guess-container');
 //console.log(guessContainer[0].children[0].children[0]);
-console.log(guessContainer[0].children[1].children[0]);
-//extra buttons 
-    const submitButton = document.querySelectorAll("#submit");
+//console.log(guessContainer[0].children[1].children[0]);
 
-  /*----- event listeners -----*/ 
-    
-    //submitButton.addEventListener('click' , nextRow);
+//**grade answer */********** */
+const gradedAnswer = document.querySelectorAll('.grade-container'); ///// *** graded answer peg 
+//console.log(gradedAnswer[0].children[1].children[0]);
 
-  /*----- functions -----*/
-  
+
+//const gradedPegs = gradedAnswer[0].children[rowNumber].children[circleNumber] 
+
+
+
+
 
   function handleClick(e) {
-    //playerGuess.push(e.target.getAttribute("id"));
-   // console.log(playerGuess);
+    
    if ( rowNumber <6){
 
 
    guessContainer[0].children[rowNumber].children[circleNumber].style.backgroundColor=e.target.id
 
     if (playerGuess.length<4) {
-        
-        
         playerGuess.push(e.target.getAttribute("id"));
         circleNumber++
     }
        if (playerGuess.length === 4){
-        //guessContainer[0].children[rowNumber].children[circleNumber].style.backgroundColor=e.target.id
         checkMatch()
         playerGuess = [];
         circleNumber = 0;
@@ -85,58 +82,78 @@ console.log(guessContainer[0].children[1].children[0]);
   
 
 
-//edge case - make sure it doesn't come to next row 
-//f the player has filled all 6 rows and does not have a match, display the solution row and show a lose message
-//If the player guesses the correct secret code, display the solution row and show a win message
-
-function showSolution(){
+function showSolution(){ // The solution will populate once the player wins or the number of maximum attempts allowed is reached
     if (rowNumber-1 === attempts) {
         displaySolutionRow(); 
         winner.innerHTML = "TRY AGAIN!";
-        //setTimeout(("Try Again"), 1000);
         //resetGame();
     } else if (JSON.stringify(playerGuess) === JSON.stringify(secretCode) ) {
         displaySolutionRow();
         winner.innerHTML = "YOU WON!";
-        //setTimeout(alert("You Won!"), 1000);
         //resetGame();
     } 
 }
 
 
 
-
-
-function displaySolutionRow() {
-for (let i= 0; i < 4; i++) {
-    solution[0].children[i].style.backgroundColor = secretCode[i];
-}
-   
+function displaySolutionRow() { // The solution will display at the top row 
+    for (let i= 0; i < 4; i++) {
+        solution[0].children[i].style.backgroundColor = secretCode[i];
+    }
 }
 
 
-
-function checkMatch(){
+function checkMatch(){ // Checks if the player guess is a match to the secret code 
     if (JSON.stringify(playerGuess) === JSON.stringify(secretCode) ){
-        //console.log("match");
         displaySolutionRow();
         showSolution();
     } else if (JSON.stringify(playerGuess) !== JSON.stringify(secretCode)) {
-       // console.log("false");
-       rowNumber++
+        checkGuessRow();
+        rowNumber++
        winner.innerHTML = `wrong! You have ${(attempts - (rowNumber-1))} guesses left`;
     }
 }
 
-    //generate code function
-    function generateSecretCode() {
-        //const secretCode = [];
-        for (let i = 0; i < 4; i++) {
+   
+function generateSecretCode() { // Generates the secret code the player has to guess correctly
+    for (let i = 0; i < 4; i++) {
             const randomIndex = Math.floor(Math.random() * colors.length);
             secretCode.push(colors[randomIndex]);
         }
         return secretCode;
     }
     
+function checkGuessRow() {
+    let secretCodeDC = JSON.parse(JSON.stringify(secretCode));
+    console.log(secretCodeDC);
+    for (let i =0;  i <4; i ++) {
+        if (playerGuess[i] === secretCode[i]) {
+        
+    secretCodeDC.slice(i,1);
+        colorsInSecretCode[i] = true;
+    } else if 
+        (secretCode.includes(playerGuess[i]) && !colorsInSecretCode[i] && secretCodeDC.includes(playerGuess[i])) {
+    
+            colorsInSecretCode[i] = false;
+        }
+    }
+    console.log(colorsInSecretCode);
+    colorsInSecretCode.forEach((color, idx) => {
+
+        if (color === true){
+            gradedAnswer[0].children[rowNumber].children[idx].style.backgroundColor = "black";
+        } else if (color === false) {
+            gradedAnswer[0].children[rowNumber].children[idx].style.backgroundColor = "white";
+        }
+    })
+    colorsInSecretCode = [null,null,null,null];
+}
+
+
+
+
+
+
+
     //function resetGame() {
       
