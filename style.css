@@ -12,46 +12,46 @@ header{
 
 }
 body{
-    background: lightblue;
+    background: rgb(0, 0, 0);
     font-family: 'Press Start 2P';
 }
 .gameboard{
     display: grid;
-    grid-template-columns: 1fr 2fr .5fr 2fr 1fr;
+    grid-template-columns: .5fr 2fr .5fr 2fr .5fr;
     grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
     border-color: black;
-    border: 5px solid black; 
-    background-color: white; 
+    border: 5px solid rgb(28, 220, 66); 
+    background-color: rgb(0, 0, 0); 
     height: 900px; 
     width:650px; 
     position: relative;
     border-radius: 25px;
-    margin-left:36%;
-    margin-right: 40%;
+    margin-left:32.3%;
+    margin-right: 50%;
+    
 }
 .guess-container{
     grid-area: 2 / 2 / 5 / 3;
     box-sizing: border-box;
-    width: 90%;
-    height: 400px;
-    border: 1px solid black;
-    border-radius: 30px;
-    justify-content:center; 
+    width: 91%;
+    height: 75vh;
+    
+    justify-content:center;
 }
 .guess-row{
     height: 10%;
     width: 100%;
-    border-bottom:1px solid black;
+   
     box-sizing: border-box;
     display: grid; 
-    grid-template-columns: repeat(4, 50px);
+    grid-template-columns: repeat(4, 90px);
    
 }
 .guess-peg{
-  height: 25px;
-  width: 25px;
+  height: 50px;
+  width: 50px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
@@ -63,33 +63,35 @@ body{
 }
 .grade-container{
     grid-area: 2 / 4 / 5 / 5; 
-    height: 400px; 
+    height: 30.2vh; 
     width: 90%; 
-    border: 1px solid black;
+   
     border-radius: 30px;
 }
 .grade-row{
-    height: 10%;
+    height: 25.6%;
     width: 100%;
     border-bottom:1px solid black; 
     display: grid; 
-    grid-template-columns: repeat(4, 50px);
+    grid-template-columns: repeat(4, 60px);
 }
 .grade-peg{
-  height: 25px;
-  width: 25px;
+  height: 30px;
+  width: 30px;
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
+ 
 
 }
 .selection-container{
     grid-area: 5 / 2 / 6 / 3; 
     width: 200px; 
     height: 60px; 
-    border: 1px solid black;
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 30px;
     background-color: black; 
+    
 }
 .selection-input{    
 }
@@ -150,6 +152,17 @@ body{
     display: inline-block;
 }
 
-.button-container{
-    grid-area: 5 / 4 / 6 / 5; 
+
+h2 {
+    font-family: 'Press Start 2P';
+    text-align: center; 
+    font-size: 30px; 
+    color: rgb(241, 57, 180);
+    position: fixed;
+    top: 10px; /* Adjust the top positioning as needed */
+    right: 10px; /* Adjust the right positioning as needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1100; /* Ensure the message appears above other content */ 
 }

@@ -2,12 +2,12 @@ console.log('js:loaded')
 
  /**Constants*/
 
-const colors = ["pink", "blue", "red", "green", "yellow"]
+const colors = ["pink", "blue", "red", "green", "yellow"] // Colors that will generate in the secret code
 const gradeColors = ["black", "white"] 
 
-/**Variables */
+/**Variables **/
 
-let colorsInSecretCode = new Array(4).fill(null);
+let colorsInSecretCode = new Array(4).fill(null); 
 let playerGuess = [];
 let gradeAnswer = [];
 let selectContainer = [];
@@ -20,7 +20,7 @@ let circleNumber = 0;
 
 
 const winner = document.querySelector('.winner-message');
-//console.log(winner);
+console.log(winner);
 
 
 const selectionInput = document.querySelectorAll('.selection-input');
@@ -46,8 +46,7 @@ const guessContainer = document.querySelectorAll('.guess-container');
 //console.log(guessContainer[0].children[0].children[0]);
 //console.log(guessContainer[0].children[1].children[0]);
 
-//**grade answer */********** */
-const gradedAnswer = document.querySelectorAll('.grade-container'); ///// *** graded answer peg 
+const gradedAnswer = document.querySelectorAll('.grade-container');  
 //console.log(gradedAnswer[0].children[1].children[0]);
 
 
@@ -55,9 +54,7 @@ const gradedAnswer = document.querySelectorAll('.grade-container'); ///// *** gr
 
 
 
-
-
-  function handleClick(e) {
+function handleClick(e) { //
     
    if ( rowNumber <6){
 
@@ -78,7 +75,7 @@ const gradedAnswer = document.querySelectorAll('.grade-container'); ///// *** gr
     showSolution();
     displaySolutionRow();
    }
-  }
+}
   
 
 
@@ -86,17 +83,17 @@ function showSolution(){ // The solution will populate once the player wins or t
     if (rowNumber-1 === attempts) {
         displaySolutionRow(); 
         winner.innerHTML = "TRY AGAIN!";
-        //resetGame();
+      
     } else if (JSON.stringify(playerGuess) === JSON.stringify(secretCode) ) {
         displaySolutionRow();
         winner.innerHTML = "YOU WON!";
-        //resetGame();
+        
     } 
 }
 
 
 
-function displaySolutionRow() { // The solution will display at the top row 
+function displaySolutionRow() { // The solution will display at the top row
     for (let i= 0; i < 4; i++) {
         solution[0].children[i].style.backgroundColor = secretCode[i];
     }
@@ -121,7 +118,7 @@ function generateSecretCode() { // Generates the secret code the player has to g
             secretCode.push(colors[randomIndex]);
         }
         return secretCode;
-    }
+     }
     
 function checkGuessRow() {
     let secretCodeDC = JSON.parse(JSON.stringify(secretCode));
@@ -141,9 +138,9 @@ function checkGuessRow() {
     colorsInSecretCode.forEach((color, idx) => {
 
         if (color === true){
-            gradedAnswer[0].children[rowNumber].children[idx].style.backgroundColor = "black";
+            gradedAnswer[0].children[rowNumber].children[idx].style.backgroundColor = "purple";
         } else if (color === false) {
-            gradedAnswer[0].children[rowNumber].children[idx].style.backgroundColor = "white";
+            gradedAnswer[0].children[rowNumber].children[idx].style.backgroundColor = "orange";
         }
     })
     colorsInSecretCode = [null,null,null,null];
@@ -155,5 +152,6 @@ function checkGuessRow() {
 
 
 
-    //function resetGame() {
+        
+            
       
