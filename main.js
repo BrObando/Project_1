@@ -25,10 +25,7 @@ console.log(winner);
 
 const selectionInput = document.querySelectorAll('.selection-input');
 const solution = document.querySelectorAll('#guessrowanswer');
-//console.log(solution);
 
-//console.log(guessContainer[0].children[0].children[0]);
-//console.log(selectionInput);
 
 generateSecretCode();
 //console.log(secretCode);
@@ -57,9 +54,8 @@ const gradedAnswer = document.querySelectorAll('.grade-container');
 function handleClick(e) { //
     
    if ( rowNumber <6){
-
-
-   guessContainer[0].children[rowNumber].children[circleNumber].style.backgroundColor=e.target.id
+    
+    guessContainer[0].children[rowNumber].children[circleNumber].style.backgroundColor=e.target.id
 
     if (playerGuess.length<4) {
         playerGuess.push(e.target.getAttribute("id"));
@@ -84,7 +80,7 @@ function showSolution(){ // The solution will populate once the player wins or t
         displaySolutionRow(); 
         winner.innerHTML = "TRY AGAIN!";
       
-    } else if (JSON.stringify(playerGuess) === JSON.stringify(secretCode) ) {
+    } else if (JSON.stringify(playerGuess) === JSON.stringify(secretCode) ) { // Converted the color array to string for comparison
         displaySolutionRow();
         winner.innerHTML = "YOU WON!";
         
@@ -120,7 +116,7 @@ function generateSecretCode() { // Generates the secret code the player has to g
         return secretCode;
      }
     
-function checkGuessRow() { 
+function checkGuessRow() {  
     let secretCodeDC = JSON.parse(JSON.stringify(secretCode));
     console.log(secretCodeDC);
     for (let i =0;  i <4; i ++) {
@@ -143,7 +139,7 @@ function checkGuessRow() {
             gradedAnswer[0].children[rowNumber].children[idx].style.backgroundColor = "orange";
         }
     })
-    colorsInSecretCode = [null,null,null,null];
+    colorsInSecretCode = [null,null,null,null]; 
 }
 
 

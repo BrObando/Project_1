@@ -14,6 +14,8 @@ header{
 body{
     background: rgb(0, 0, 0);
     font-family: 'Press Start 2P';
+    display: grid;
+    place-items: center;
 }
 .gameboard{
     display: grid;
@@ -28,8 +30,7 @@ body{
     width:650px; 
     position: relative;
     border-radius: 25px;
-    margin-left:29.8%;
-    margin-right: 50%;
+
     
 }
 .guess-container{
@@ -79,50 +80,48 @@ body{
   display: inline-block;
 }
 .selection-container{
-    grid-area: 5 / 2 / 6 / 3; 
-    width: 200px; 
-    height: 60px; 
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 30px;
-    background-color: black; 
+    position: absolute;
+    top: 600px; 
+    right: 400px;
     
+    z-index: 2; 
 }
 #pink {
     background-color: rgb(234, 30, 146);
-    width: 25px;
-    height: 25px;
+    width: 50px;
+    height: 50px;
     border-color: white;
     border-radius: 50%;
     display: inline-block;
 }
 #blue {
     background-color: rgb(99, 219, 252);
-    width: 25px;
-    height: 25px;
+    width: 50px;
+    height: 50px;
     border-color: white;
     border-radius: 50%;
     display: inline-block;
 }
 #red {
     background-color: rgb(237, 6, 6);
-    width: 25px;
-    height: 25px;
+    width: 50px;
+    height: 50px;
     border-color: white;
     border-radius: 50%;
     display: inline-block;
 }
 #green {
     background-color: rgb(40, 246, 67);
-    width: 25px;
-    height: 25px;
+    width: 50px;
+    height: 50px;
     border-color: white;
     border-radius: 50%;
     display: inline-block;
 }
 #yellow {
     background-color: rgb(237, 233, 11);
-    width: 25px;
-    height: 25px;
+    width: 50px;
+    height: 50px;
     border-color: white;
     border-radius: 50%;
     display: inline-block;
