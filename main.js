@@ -120,7 +120,7 @@ function generateSecretCode() { // Generates the secret code the player has to g
         return secretCode;
      }
     
-function checkGuessRow() {
+function checkGuessRow() { 
     let secretCodeDC = JSON.parse(JSON.stringify(secretCode));
     console.log(secretCodeDC);
     for (let i =0;  i <4; i ++) {

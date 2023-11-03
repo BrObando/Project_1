@@ -9,11 +9,35 @@
 2. As a player I would like to have a list of rules to refer back to. 
 
 
-
 ## Psuedocode For The Overall MasterMind Game Play
 
-1. The player will be given a choice to begin the game with a "Start Game" button. The computer will intialize 4 random colors as the secret code.
-2. The player will be able to select each circle and a drop down box will appear with the 9 possible color options. Once all 4 circle/pegs are populated with a color the player can check their guess with the a "TRY It" button on the guess indicator. 
-3.The guess indicator box will reside to the right of the gameboard box and indicate which of the player guesses were correct. 
-4. For each guess a green score peg indicates that one of your pegs is the right color in the right position. An orange score peg indicates that one of your pegs is the right color in the wrong position. A blank peg will indicate that color is not in the secret code. 
-5. If the code is not guessed correctly in the 8 tries provided an autogenerate pop-up box will display with the message 'GAME OVER' and the secret code will be revealed at the bottom of the gameboard. If the code is guessed correctly a 'WINNER' message will populate. Within each box it will provide the player with the option to quit or try again. 
+Start Mastermind Game
+  Generate a Secret Code:
+    Create an array of four colored pegs (e.g., "Red", "Green", "Blue", "Yellow")
+    Shuffle the array to randomize the secret code
+
+Set Max Attempts to 5
+
+For Each Turn in 1 to Max Attempts:
+  Display Turn Number
+  Prompt Player for a Guess:
+    Read the player's input (four color choices)
+    Validate the input for correctness
+
+  Compare the Player's Guess to the Secret Code:
+    For each peg position (1 to 4):
+      If the guess peg matches the secret code peg and is in the correct position:
+        Add a purple peg to the feedback
+      If the guess peg matches the secret code peg but is in the wrong position:
+        Add a orange peg to the feedback
+
+  Display Feedback to the Player:
+    Show the feedback pegs (purple and orange) to indicate correct guesses
+
+  If Player's Guess Matches Secret Code:
+    Display a Winning Message
+
+
+End of For Loop (Max Attempts)
+Display a Losing Message with the Secret Code
+End Mastermind Game

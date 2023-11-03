@@ -1,11 +1,13 @@
+![](./Assets/Game.png)
+
 ## MasterMind
 
 Mastermind is a classic board game of logic and deduction. In the game, one player creates a secret code consisting of a sequence of colored pegs, and the other player (or players) attempt to guess the code within a limited number of turns. 
-In this verseion after each guess, the code-maker provides feedback to the code-breaker, indicating how many pegs are the correct color and in the correct position (marked with orange and purple) and how many pegs are the correct color but in the wrong position. There is an added layer of difficulty where   The code-breaker continues making guesses and refining their deductions until they either solve the code or run out of attempts. 
+In this version of the game Mastermind after each guess, the code-maker provides feedback to the code-breaker, indicating how many pegs are the correct color and in the correct position (marked with orange and purple) and how many pegs are the correct color but in the wrong position. There is an added layer of difficulty where   The code-breaker continues making guesses and refining their deductions until they either solve the code or run out of attempts. 
 
-In this version of Mastermind there is an added layer of difficulty where 
+In this version of Mastermind there is an added layer of difficulty where there is no hint given of how many colors repeat themselves. 
 
-☐ Screenshot(s):
+# Screenshot(s):
 
 # Technologies Used: 
 

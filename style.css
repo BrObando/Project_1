@@ -43,11 +43,9 @@ body{
 .guess-row{
     height: 10%;
     width: 100%;
-   
     box-sizing: border-box;
     display: grid; 
     grid-template-columns: repeat(4, 90px);
-   
 }
 .guess-peg{
   height: 50px;
@@ -55,7 +53,6 @@ body{
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
-    
 }
 #graderownada {
     display: grid; 
@@ -65,7 +62,6 @@ body{
     grid-area: 2 / 4 / 5 / 5; 
     height: 30.2vh; 
     width: 90%; 
-   
     border-radius: 30px;
 }
 .grade-row{
@@ -81,8 +77,6 @@ body{
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
- 
-
 }
 .selection-container{
     grid-area: 5 / 2 / 6 / 3; 
@@ -92,8 +86,6 @@ body{
     border-radius: 30px;
     background-color: black; 
     
-}
-.selection-input{    
 }
 #pink {
     background-color: rgb(234, 30, 146);
@@ -152,17 +144,16 @@ body{
     display: inline-block;
 }
 
-
 h2 {
     font-family: 'Press Start 2P';
     text-align: center; 
     font-size: 30px; 
     color: rgb(241, 57, 180);
     position: fixed;
-    top: 10px; /* Adjust the top positioning as needed */
-    right: 10px; /* Adjust the right positioning as needed */
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    top: 10px; 
+    right: 10px; 
+    background-color: rgba(0, 0, 0, 0.7); 
     padding: 10px;
     border-radius: 5px;
-    z-index: 1100; /* Ensure the message appears above other content */ 
+    z-index: 1100; 
 }
