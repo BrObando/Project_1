@@ -31,8 +31,6 @@ generateSecretCode();
 //console.log(secretCode);
 
 
-
-
 selectionInput.forEach(function(colorOption){
     colorOption.addEventListener('click', handleClick);
     //console.log(colorOption);
@@ -51,7 +49,7 @@ const gradedAnswer = document.querySelectorAll('.grade-container');
 
 
 
-function handleClick(e) { //
+function handleClick(e) { // Allowed the colors from the button container to display into guess containers
     
    if ( rowNumber <6){
     
